@@ -1,17 +1,15 @@
-FROM openjdk:8-jdk-slim-stretch
+FROM openjdk:8-jdk-alpine3.8
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
 ENV SONAR_SCANNER_VERSION "3.2.0.1227"
 ENV SONAR_USER_HOME /cache/.sonar
-ENV DEBIAN_FRONTEND noninteractive
 
 WORKDIR /usr/local/bin
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        curl=7.52.1-5+deb9u6 \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache --virtual=.build-deps \
+        bash \
+        curl=7.61.0-r0
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -19,11 +17,7 @@ RUN curl -sSL "https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/so
         && chmod +x "sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner" \
         && ln -s "sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner" sonar-scanner
 
-RUN apt-get remove -y \
-        curl
-
-RUN echo "dash dash/sh boolean false" | debconf-set-selections \
-    && dpkg-reconfigure dash
+RUN apk del .build-deps
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 

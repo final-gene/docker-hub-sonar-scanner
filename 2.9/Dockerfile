@@ -2,7 +2,7 @@ FROM openjdk:8-jdk-alpine3.8
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
-ENV SONAR_SCANNER_VERSION "2.9.0.670"
+ENV SONAR_SCANNER_VERSION 2.9.0.670
 ENV SONAR_USER_HOME /cache/.sonar
 
 WORKDIR /usr/local/bin

@@ -6,6 +6,7 @@ This is a image to run the [sonar scanner](https://docs.sonarqube.org/display/SC
 ## Supported tags and respective Dockerfile links
 * `3.0`, `latest` [(3.0/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/3.0/Dockerfile)
 * `2.9` [(2.9/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/2.9/Dockerfile)
+* `2.8` [(2.8/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/2.8/Dockerfile)
 
 ## How to use this image
 Run the `sonar-scanner` image:

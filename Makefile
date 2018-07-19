@@ -1,6 +1,6 @@
 NAME = sonar-scanner
 
-VERSIONS = 2.8 2.9 3.0
+VERSIONS = 2.8 2.9 3.0 3.1
 
 .PHONY: build
 build: ${VERSIONS}

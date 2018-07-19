@@ -1,0 +1,109 @@
+version: 2
+
+.tempates:
+  .validate_template: &validate_template
+    docker:
+      -
+        image: finalgene/hadolint:latest
+    working_directory: /app
+    steps:
+      - checkout
+      - setup_remote_docker
+      -
+        run:
+          name: Validate Dockerfile
+          command: |
+            hadolint $VERSION/Dockerfile
+  .build_template: &build_template
+    docker:
+      -
+        image: docker:18.05.0-ce-git
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - setup_remote_docker
+      -
+        run:
+          name: Build application Docker image
+          command: |
+            docker build --tag sonar-scanner:$VERSION $VERSION/
+      -
+        run:
+          name: List created images
+          command: |
+            docker images
+
+jobs:
+  validate-2.8:
+    environment:
+      VERSION: "2.8"
+    <<: *validate_template
+  build-2.8:
+    environment:
+      VERSION: "2.8"
+    <<: *build_template
+
+  validate-2.9:
+    environment:
+      VERSION: "2.9"
+    <<: *validate_template
+  build-2.9:
+    environment:
+      VERSION: "2.9"
+    <<: *build_template
+
+  validate-3.0:
+    environment:
+      VERSION: "3.0"
+    <<: *validate_template
+  build-3.0:
+    environment:
+      VERSION: "3.0"
+    <<: *build_template
+
+  validate-3.1:
+    environment:
+      VERSION: "3.1"
+    <<: *validate_template
+  build-3.1:
+    environment:
+      VERSION: "3.1"
+    <<: *build_template
+
+  validate-3.2:
+    environment:
+      VERSION: "3.2"
+    <<: *validate_template
+  build-3.2:
+    environment:
+      VERSION: "3.2"
+    <<: *build_template
+
+workflows:
+  version: 2
+  validate_and_build:
+    jobs:
+      - validate-2.8
+      - build-2.8:
+          requires:
+            - validate-2.8
+
+      - validate-2.9
+      - build-2.9:
+          requires:
+            - validate-2.9
+
+      - validate-3.0
+      - build-3.0:
+          requires:
+            - validate-3.0
+
+      - validate-3.1
+      - build-3.1:
+          requires:
+            - validate-3.1
+
+      - validate-3.2
+      - build-3.2:
+          requires:
+            - validate-3.2

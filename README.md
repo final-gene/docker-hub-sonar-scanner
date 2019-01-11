@@ -4,7 +4,8 @@
 This is a image to run the [sonar scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner).
 
 ## Supported tags and respective Dockerfile links
-* `3.2`, `latest` [(3.2/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/3.2/Dockerfile)
+* `3.3`, `latest` [(3.3/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/3.3/Dockerfile)
+* `3.2` [(3.2/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/3.2/Dockerfile)
 * `3.1` [(3.1/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/3.1/Dockerfile)
 * `3.0` [(3.0/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/3.0/Dockerfile)
 * `2.9` [(2.9/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/2.9/Dockerfile)

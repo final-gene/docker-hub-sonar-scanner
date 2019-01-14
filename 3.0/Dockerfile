@@ -9,11 +9,11 @@ WORKDIR /usr/local/bin
 
 RUN apk add --no-cache --virtual=.build-deps \
         bash \
-        curl=7.61.0-r0
+        curl=7.61.1-r1
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-RUN curl -sSL "https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip" | jar xvf /dev/stdin \
+RUN curl -sSL "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip" | jar xvf /dev/stdin \
         && chmod +x "sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner" \
         && ln -s "sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner" sonar-scanner
 

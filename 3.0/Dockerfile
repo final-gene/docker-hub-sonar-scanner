@@ -9,7 +9,7 @@ WORKDIR /usr/local/bin
 
 RUN apk add --no-cache --virtual=.build-deps \
         bash \
-        curl=7.61.1-r1
+        curl
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 

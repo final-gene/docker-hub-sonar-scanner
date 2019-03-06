@@ -17,12 +17,14 @@ if [ ! -z "${SONAR_LOGIN_TOKEN}" ]; then
     SONAR_HOST_OPTIONS="${SONAR_HOST_OPTIONS} -Dsonar.login=${SONAR_LOGIN_TOKEN}"
 fi
 
+export SONAR_SCANNER_OPTS="${SONAR_SCANNER_OPTS} ${SONAR_HOST_OPTIONS}"
+
 # Run given command if the first arg matches the entry point command
 if [ "$1" = "${ENTRYPOINT_COMMAND}" ]; then
-  set -- "$@" ${SONAR_HOST_OPTIONS}
+  set -- "$@"
 # Pass all arguments to the entry point command
 elif [ ${NO_CMD} -eq 1 ]; then
-  set -- ${ENTRYPOINT_COMMAND} "$@" ${SONAR_HOST_OPTIONS}
+  set -- ${ENTRYPOINT_COMMAND} "$@"
 fi
 
 # Run the command

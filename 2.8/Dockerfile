@@ -19,6 +19,11 @@ RUN curl -sSL "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/s
         && chmod +x "sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner" \
         && ln -s "sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner" sonar-scanner
 
+# hadolint ignore=DL3018
+RUN apk add --no-cache nodejs
+
+SHELL ["/bin/sh", "-c"]
+
 RUN apk del .build-deps
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh

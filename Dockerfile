@@ -2,9 +2,8 @@ FROM openjdk:8-jdk-alpine3.8
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 
-ENV SONAR_SCANNER_VERSION 2.8
+ENV SONAR_SCANNER_VERSION 2.9.0.670
 ENV SONAR_USER_HOME /cache/.sonar
-ENV SONAR_SCANNER_HOME "/usr/local/bin/sonar-scanner-${SONAR_SCANNER_VERSION}"
 
 WORKDIR /usr/local/bin
 
@@ -17,7 +16,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apk add --no-cache --virtual=.build-deps \
         curl
 
-RUN curl -sSL "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-${SONAR_SCANNER_VERSION}.zip" | jar xvf /dev/stdin \
+RUN curl -sSL "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip" | jar xvf /dev/stdin \
         && chmod +x "sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner" \
         && ln -s "sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner" sonar-scanner
 

@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine3.8
+FROM openjdk:17-ea-22-oraclelinux8
 
 LABEL maintainer="frank.giesecke@final-gene.de"
 

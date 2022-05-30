@@ -1,5 +1,4 @@
 # Sonar scanner
-[![CircleCI](https://circleci.com/gh/final-gene/docker-hub-sonar-scanner/tree/master.svg?style=svg)](https://circleci.com/gh/final-gene/docker-hub-sonar-scanner/tree/master) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bfdd057b2435451092fd0411e96521eb)](https://www.codacy.com/app/final-gene/docker-hub-sonar-scanner?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=final-gene/docker-hub-sonar-scanner&amp;utm_campaign=Badge_Grade)
 
 This is a image to run the [sonar scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner).
 

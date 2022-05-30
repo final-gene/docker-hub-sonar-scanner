@@ -7,12 +7,10 @@ ENV SONAR_USER_HOME /cache/.sonar
 
 WORKDIR /usr/local/bin
 
-# hadolint ignore=DL3018
 RUN apk add --no-cache bash
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# hadolint ignore=DL3018
 RUN apk add --no-cache --virtual=.build-deps \
         curl
 
@@ -20,7 +18,6 @@ RUN curl -sSL "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/s
         && chmod +x "sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner" \
         && ln -s "sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner" sonar-scanner
 
-# hadolint ignore=DL3018
 RUN apk add --no-cache nodejs
 
 RUN apk del .build-deps

@@ -1,14 +1,8 @@
 # Sonar scanner
 
-This is a image to run the [sonar scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner).
+[![Docker build and publish](https://github.com/final-gene/docker-hub-sonar-scanner/actions/workflows/publish.yml/badge.svg)](https://github.com/final-gene/docker-hub-sonar-scanner/actions/workflows/publish.yml)
 
-## Supported tags and respective Dockerfile links
-* `3.3`, `latest` [(3.3/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/3.3/Dockerfile)
-* `3.2` [(3.2/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/3.2/Dockerfile)
-* `3.1` [(3.1/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/3.1/Dockerfile)
-* `3.0` [(3.0/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/3.0/Dockerfile)
-* `2.9` [(2.9/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/2.9/Dockerfile)
-* `2.8` [(2.8/Dockerfile)](https://github.com/finalgene/docker-hub-sonar-scanner/blob/master/2.8/Dockerfile)
+This is an image to run the [sonar scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner).
 
 ## How to use this image
 Run the `sonar-scanner` image:
